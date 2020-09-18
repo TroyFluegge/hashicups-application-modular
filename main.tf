@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 module "frontend" {
-  source = "git::http://<UPDATEME>/server-team/terraform-aws-server-module.git"
+  source = "git::http://UPDATEME/server-team/terraform-aws-server-module.git"
   name              = "frontend"
   tags              = { Owner = "jdoe@hashicorp.com", CostCenter = "12345", Environment = "Development" }
   vpc_id            = module.network.vpc_id
@@ -16,7 +16,7 @@ module "frontend" {
 }
 
 module "public_api" {
-  source = "git::http://<UPDATEME>/server-team/terraform-aws-server-module.git"
+  source = "git::http://UPDATEME/server-team/terraform-aws-server-module.git"
   name              = "public_api"
   tags              = { Owner = "jdoe@hashicorp.com", CostCenter = "12345", Environment = "Development" }
   vpc_id            = module.network.vpc_id
@@ -29,7 +29,7 @@ module "public_api" {
 }
 
 module "product_api" {
-  source = "git::http://<UPDATEME>/server-team/terraform-aws-server-module.git"
+  source = "git::http://UPDATEME/server-team/terraform-aws-server-module.git"
   name              = "product_api"
   tags              = { Owner = "jdoe@hashicorp.com", CostCenter = "12345", Environment = "Development" }
   vpc_id            = module.network.vpc_id
@@ -42,7 +42,7 @@ module "product_api" {
 }
 
 module "postgres" {
-  source = "git::http://<UPDATEME>/server-team/terraform-aws-server-module.git"
+  source = "git::http://UPDATEME/server-team/terraform-aws-server-module.git"
   name              = "postgres"
   tags              = { Owner = "jdoe@hashicorp.com", CostCenter = "12345", Environment = "Development" }
   vpc_id            = module.network.vpc_id
@@ -54,7 +54,7 @@ module "postgres" {
 }
 
 module "network" {
-  source = "git::http://<UPDATEME>/network-team/terraform-aws-network-module.git"
+  source = "git::http://UPDATEME/network-team/terraform-aws-network-module.git"
   name            = "Hashicups"
   private_subnets = ["10.140.1.0/24", "10.140.2.0/24", "10.140.3.0/24"]
   public_subnets  = ["10.140.101.0/24", "10.140.102.0/24", "10.140.103.0/24"]

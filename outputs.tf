@@ -11,3 +11,7 @@ http://${module.frontend.public_ip}
 
 README
 }
+
+output "environment" {
+    value = var.environment
+}

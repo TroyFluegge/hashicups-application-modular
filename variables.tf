@@ -1,2 +1,2 @@
-variable "region" { default = "us-west-2" }
-variable "environment" { default = "not-defined" }
+variable "region" { default = "us-east-2" }
+variable "environment" { default = "development" }

@@ -11,7 +11,8 @@ locals {
 }
 
 module "frontend" {
-  source = "app.terraform.io/Troy/terraform-aws-server"
+  source  = "app.terraform.io/Troy/server-module/aws"
+  version = "1.0.0"
   name              = "frontend"
   tags              = local.common_tags
   vpc_id            = module.network.vpc_id
@@ -20,11 +21,11 @@ module "frontend" {
   public_key        = aws_key_pair.awskey.key_name
   private_ip        = "10.140.101.10"
   upstream_ip       = "10.140.101.11"
-
 }
 
 module "public_api" {
-  source = "app.terraform.io/Troy/terraform-aws-server"
+  source  = "app.terraform.io/Troy/server-module/aws"
+  version = "1.0.0"
   name              = "public_api"
   tags              = local.common_tags
   vpc_id            = module.network.vpc_id
@@ -33,11 +34,11 @@ module "public_api" {
   public_key        = aws_key_pair.awskey.key_name
   private_ip        = "10.140.101.11"
   upstream_ip       = "10.140.101.12"
-
 }
 
 module "product_api" {
-  source = "app.terraform.io/Troy/terraform-aws-server"
+  source  = "app.terraform.io/Troy/server-module/aws"
+  version = "1.0.0"
   name              = "product_api"
   tags              = local.common_tags
   vpc_id            = module.network.vpc_id
@@ -46,11 +47,11 @@ module "product_api" {
   public_key        = aws_key_pair.awskey.key_name
   private_ip        = "10.140.101.12"
   upstream_ip       = "10.140.101.13"
-
 }
 
 module "postgres" {
-  source = "app.terraform.io/Troy/terraform-aws-server"
+  source  = "app.terraform.io/Troy/server-module/aws"
+  version = "1.0.0"
   name              = "postgres"
   tags              = local.common_tags
   vpc_id            = module.network.vpc_id
@@ -62,7 +63,8 @@ module "postgres" {
 }
 
 module "network" {
-  source = "app.terraform.io/Troy/terraform-aws-network"
+  source  = "app.terraform.io/Troy/network-module/aws"
+  version = "1.0.0"
   name            = "Hashicups"
   private_subnets = ["10.140.1.0/24", "10.140.2.0/24", "10.140.3.0/24"]
   public_subnets  = ["10.140.101.0/24", "10.140.102.0/24", "10.140.103.0/24"]

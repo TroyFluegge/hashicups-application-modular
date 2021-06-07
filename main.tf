@@ -4,14 +4,14 @@ provider "aws" {
 
 locals {
   common_tags = {
-      Environment = "${var.environment}"
+      environment = "${var.environment}"
       owner = "troy@hashicorp.com"
-      CostCenter = "12345"
+      costcenter = "12345"
     }
 }
 
 module "frontend" {
-  source = "./terraform-aws-server"
+  source = "app.terraform.io/Troy/terraform-aws-server"
   name              = "frontend"
   tags              = local.common_tags
   vpc_id            = module.network.vpc_id
@@ -24,7 +24,7 @@ module "frontend" {
 }
 
 module "public_api" {
-  source = "./terraform-aws-server"
+  source = "app.terraform.io/Troy/terraform-aws-server"
   name              = "public_api"
   tags              = local.common_tags
   vpc_id            = module.network.vpc_id
@@ -37,7 +37,7 @@ module "public_api" {
 }
 
 module "product_api" {
-  source = "./terraform-aws-server"
+  source = "app.terraform.io/Troy/terraform-aws-server"
   name              = "product_api"
   tags              = local.common_tags
   vpc_id            = module.network.vpc_id
@@ -50,7 +50,7 @@ module "product_api" {
 }
 
 module "postgres" {
-  source = "./terraform-aws-server"
+  source = "app.terraform.io/Troy/terraform-aws-server"
   name              = "postgres"
   tags              = local.common_tags
   vpc_id            = module.network.vpc_id
@@ -62,7 +62,7 @@ module "postgres" {
 }
 
 module "network" {
-  source = "./terraform-aws-network"
+  source = "app.terraform.io/Troy/terraform-aws-network"
   name            = "Hashicups"
   private_subnets = ["10.140.1.0/24", "10.140.2.0/24", "10.140.3.0/24"]
   public_subnets  = ["10.140.101.0/24", "10.140.102.0/24", "10.140.103.0/24"]

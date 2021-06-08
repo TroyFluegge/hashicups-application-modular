@@ -1,4 +1,5 @@
 output "output" {
+  sensitive = true
   value = <<README
 
 frontend: ssh -i ~/.ssh/awskey-modular.pem centos@${module.frontend.public_ip}

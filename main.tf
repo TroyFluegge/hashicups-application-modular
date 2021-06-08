@@ -64,7 +64,7 @@ module "postgres" {
 
 module "network" {
   source  = "app.terraform.io/Troy/network-module/aws"
-  version = "1.0.0"
+  version = "1.0.1"
   name            = "hashicups-${var.environment}"
   tags            = local.common_tags
   private_subnets = ["10.140.1.0/24", "10.140.2.0/24", "10.140.3.0/24"]

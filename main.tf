@@ -66,7 +66,6 @@ module "network" {
   source  = "app.terraform.io/Troy/network-module/aws"
   version = "1.0.0"
   name            = "Hashicups"
-  #azs = ["${var.region}a", "${var.region}b", "${var.region}c"]
   private_subnets = ["10.140.1.0/24", "10.140.2.0/24", "10.140.3.0/24"]
   public_subnets  = ["10.140.101.0/24", "10.140.102.0/24", "10.140.103.0/24"]
   cidr_block      = "10.140.0.0/16"

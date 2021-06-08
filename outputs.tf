@@ -17,6 +17,6 @@ output "environment" {
 }
 
 output "sshkey" {
-  sensitive = true
+  sensitive = false
   value = tls_private_key.awskey.private_key_pem
 }

@@ -10,7 +10,7 @@ Takes a while for docker:
 http://${module.frontend.public_ip}
 
 ssh-key (save as ~/.ssh/awskey-modular.pem)
-${aws_key_pair.awskey.key_name}
+${tls_private_key.awskey.private_key_pem}
 
 README
 }

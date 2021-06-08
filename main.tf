@@ -7,7 +7,7 @@ locals {
       environment = "${var.environment}"
       application = "hashicups"
       owner = "troy@hashicorp.com"
-      #costcenter = "12345"
+      costcenter = "12345"
     }
 }
 

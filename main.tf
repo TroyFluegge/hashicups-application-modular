@@ -12,7 +12,7 @@ locals {
 
 module "frontend" {
   source  = "app.terraform.io/Troy/server-module/aws"
-  version = "1.0.0"
+  version = "1.0.1"
   name              = "frontend-${var.environment}"
   tags              = local.common_tags
   vpc_id            = module.network.vpc_id
@@ -25,7 +25,7 @@ module "frontend" {
 
 module "public_api" {
   source  = "app.terraform.io/Troy/server-module/aws"
-  version = "1.0.0"
+  version = "1.0.1"
   name              = "public_api-${var.environment}"
   tags              = local.common_tags
   vpc_id            = module.network.vpc_id
@@ -38,7 +38,7 @@ module "public_api" {
 
 module "product_api" {
   source  = "app.terraform.io/Troy/server-module/aws"
-  version = "1.0.0"
+  version = "1.0.1"
   name              = "product_api-${var.environment}"
   tags              = local.common_tags
   vpc_id            = module.network.vpc_id
@@ -51,7 +51,7 @@ module "product_api" {
 
 module "postgres" {
   source  = "app.terraform.io/Troy/server-module/aws"
-  version = "1.0.0"
+  version = "1.0.1"
   name              = "postgres-${var.environment}"
   tags              = local.common_tags
   vpc_id            = module.network.vpc_id

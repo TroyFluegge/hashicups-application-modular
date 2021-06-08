@@ -13,7 +13,7 @@ locals {
 module "frontend" {
   source  = "app.terraform.io/Troy/server-module/aws"
   version = "1.0.0"
-  name              = "frontend"
+  name              = "frontend-${var.environment}"
   tags              = local.common_tags
   vpc_id            = module.network.vpc_id
   vpc_subnet_ids    = module.network.public_subnets[0]
@@ -26,7 +26,7 @@ module "frontend" {
 module "public_api" {
   source  = "app.terraform.io/Troy/server-module/aws"
   version = "1.0.0"
-  name              = "public_api"
+  name              = "public_api-${var.environment}"
   tags              = local.common_tags
   vpc_id            = module.network.vpc_id
   vpc_subnet_ids    = module.network.public_subnets[0]
@@ -39,7 +39,7 @@ module "public_api" {
 module "product_api" {
   source  = "app.terraform.io/Troy/server-module/aws"
   version = "1.0.0"
-  name              = "product_api"
+  name              = "product_api-${var.environment}"
   tags              = local.common_tags
   vpc_id            = module.network.vpc_id
   vpc_subnet_ids    = module.network.public_subnets[0]
@@ -52,7 +52,7 @@ module "product_api" {
 module "postgres" {
   source  = "app.terraform.io/Troy/server-module/aws"
   version = "1.0.0"
-  name              = "postgres"
+  name              = "postgres-${var.environment}"
   tags              = local.common_tags
   vpc_id            = module.network.vpc_id
   vpc_subnet_ids    = module.network.public_subnets[0]
@@ -65,7 +65,8 @@ module "postgres" {
 module "network" {
   source  = "app.terraform.io/Troy/network-module/aws"
   version = "1.0.0"
-  name            = "Hashicups"
+  name            = "hashicups-${var.environment}"
+  tags            = local.common_tags
   private_subnets = ["10.140.1.0/24", "10.140.2.0/24", "10.140.3.0/24"]
   public_subnets  = ["10.140.101.0/24", "10.140.102.0/24", "10.140.103.0/24"]
   cidr_block      = "10.140.0.0/16"

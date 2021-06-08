@@ -5,6 +5,7 @@ provider "aws" {
 locals {
   common_tags = {
       environment = "${var.environment}"
+      application = "hashicups"
       owner = "troy@hashicorp.com"
       costcenter = "12345"
     }
